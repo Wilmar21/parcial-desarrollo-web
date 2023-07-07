@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('./templates/header.ejs')%>
+</head>
+<body>
+    <div class="container">
+        <h1>Listado de peliculas de marvel</h1>
+        <%if( data.size > 0 ){%>
+            Si hay <%=data.size%> datos
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>titulo</th>
+                        <th>fase</th>  
+                        <th>categoria</th>
+                        <th>lanzamiento</th>
+                        <th>duracion (min)</th>
+                        <th>rating</th>
+                        <th>formato</th>
+                        <th>numero de disco</th>
+                        <th>formato de visualizacion</th>
+                        <th>radio</th>
+                        <th>status</th>
+                        <th>relase date</th>
+                        <th>budget</th>
+                        <th>gross</th>
+                        <th>tiem_stamp</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <%for( const [key,value] of data ){%>
+                            <tr>
+                                <td><%=value.movie_id%></td>
+                                <td><%=value.title%></td>
+                                <td><%=value.phase%></td>
+                                <td><%=value.category_name%></td>
+                                <td><%=value.relase_year%></td>
+                                <td><%=value.running_time%></td>
+                                <td><%=value.rating_name%></td>
+                                <td><%=value.disc_format_name%></td>
+                                <td><%=value.number_discs%></td>
+                                <td><%=value.viewing_format_name%></td>
+                                <td><%=value.aspect_ratio_name%></td>
+                                <td><%=value.status%></td>
+                                <td><%=value.release_date%></td>
+                                <td><%=value.budget%></td>
+                                <td><%=value.gross%></td>
+                                <td><%=value.time_stamp%></td>
+                            </tr>   
+                    <%}%>
+                </tbody>
+            </table>
+        <%} else {%>
+            <h4>No hay registros</h4>
+        <%}%>
+
+    <script src="./js/bootstrap.min.js"></script>
+</body>
+</html>
